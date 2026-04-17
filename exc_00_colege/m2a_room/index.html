@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+ 	<head>
+		<meta charset="utf-8">
+    	<title>MemoriAção - Sala Virtual</title>
+    	<script src="vendor/aframe.min.js"></script>
+    	<script src="vendor/aframe-extras.min.js"></script>
+  	</head>
+  	<body>
+    	<a-scene>
+      		<a-assets>
+				<a-asset-item id="sala-mdl" src="models/sala-mdl.glb"></a-asset-item>
+				<a-asset-item id="sala-map" src="models/sala-map.glb"></a-asset-item>
+				<a-asset-item id="sofa-mdl" src="models/sofa-mdl.glb"></a-asset-item>
+				<a-asset-item id="tvld-mdl" src="models/tvld-mdl.glb"></a-asset-item>
+				<a-asset-item id="pufe-mdl" src="models/pufe-mdl.glb"></a-asset-item>
+				<a-asset-item id="agua-mdl" src="models/agua-mdl.glb"></a-asset-item>
+				<a-asset-item id="quadro-kelvya-mdl" src="models/quadro-pf-kelvya-mdl.glb"></a-asset-item>
+				<a-asset-item id="quadro-kelsen-mdl" src="models/quadro-pf-kelsen-mdl.glb"></a-asset-item>		
+				<a-asset-item id="mesa-computador-mdl" src="models/mesa-computador-mdl.glb"></a-asset-item>
+				<a-asset-item id="estantes-mdl" src="models/estantes-mdl.glb"></a-asset-item>
+				<a-asset-item id="partileria-trofeus-mdl" src="models/partileria-trofeus-mdl.glb"></a-asset-item>
+	    
+				<video id="tv-video" src="videos/video.mp4" 
+         			autoplay="true" 
+         			loop="true" 
+         			muted="true" 
+         			playsinline 
+         			webkit-playsinline 
+         			crossorigin="anonymous">
+				</video>
+      		</a-assets>
+   
+	 		<a-entity gltf-model="#sala-mdl"></a-entity>
+      		<a-entity gltf-model="#sofa-mdl"></a-entity>
+			<a-entity gltf-model="#tvld-mdl"></a-entity>
+			<a-entity gltf-model="#pufe-mdl"></a-entity>
+			<a-entity gltf-model="#agua-mdl"></a-entity>
+			<a-entity gltf-model="#mesa-computador-mdl"></a-entity>
+			<a-entity gltf-model="#quadro-kelvya-mdl"></a-entity>
+			<a-entity gltf-model="#quadro-kelsen-mdl"></a-entity>
+			<a-entity gltf-model="#estantes-mdl"></a-entity>
+			<a-entity gltf-model="#partileria-trofeus-mdl"></a-entity>
+        	<a-entity gltf-model="#sala-map" nav-mesh visible="false"></a-entity>	
+			<a-video src="#tv-video" width="1.6" height="0.9" position="-2.82520 1.87054 -2.26456" rotation="0 90 0" scale="0.69 0.71 1"></a-video>
+      		
+			<a-entity id="rig" movement-controls="constrainToNavMesh: true; speed: 0.2" position="0 0 0">
+        		<a-entity camera look-controls position="0 1.6 0">
+          			<a-cursor raycaster="objects: .interativo"></a-cursor>
+        		</a-entity>
+      		</a-entity>
+    	</a-scene>
+		<script>
+	  	document.body.addEventListener('click', function() {
+	    	var v = document.querySelector('#tv-video');
+	    	v.play(); v.muted = false; 
+		}, { once: true });
+	</script>
+	</body>
+</html>
